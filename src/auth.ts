@@ -3,4 +3,5 @@ import GitHub from "@auth/sveltekit/providers/github"
  
 export const { handle } = SvelteKitAuth({
   providers: [GitHub],
+	trustHost: true
 })
