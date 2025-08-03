@@ -1,9 +1,16 @@
-<script>
+<script lang="ts">
+    import { onNavigate } from "$app/navigation";
 	import { page } from "$app/state";
 	import { signIn, signOut } from "@auth/sveltekit/client";
+
+	let userMenu = $state<HTMLDivElement>()
+	onNavigate((navigation) => {
+		console.log('navigation', navigation)
+		userMenu?.hidePopover() 
+	})
 </script>
 
-<header class="flex justify-between items-center p-4 border-b">
+<header class="flex justify-between items-center px-4 py-2 border-b">
 	<a href="/" class="text-lg">Local<span class="font-bold">Trust</span></a>
 
 	<div class="flex gap-2">
@@ -14,10 +21,11 @@
 		{#if page.data.session}
 			<!-- content here -->
 			<button popovertarget="user-menu" popovertargetaction="toggle"
+			class="px-3 py-1 border border-gray-600 bg-gray-200 hover:bg-gray-300 hover:cursor-pointer rounded flex items-center gap-2"
 				>{page.data.session.user?.name}</button
 			>
 
-			<div popover="auto" id="user-menu" class="shadow border rounded">
+			<div popover="auto" id="user-menu" class="shadow border rounded" bind:this={userMenu}>
 
 				<div class="flex items-center justify-center flex-row gap-2 border-b p-2">
 					{#if page.data.session.user?.image}
