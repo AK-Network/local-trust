@@ -1,7 +1,6 @@
 import { dev } from '$app/environment'
 import clientPromise from '$lib/mongodb'
 import { createCA, createCert } from 'mkcert'
-import { Collection } from 'mongodb'
 
 
 export const GET = async (event) => {
@@ -31,7 +30,7 @@ export const GET = async (event) => {
 
 	const measure = performance.measure('db query', startMark)
 	console.log(`${measure.name} took', ${measure.duration}ms`)
-
+console.log('certificates', certificates)
 
 
 

@@ -3,11 +3,11 @@
 	import { signIn } from "@auth/sveltekit/client";
 </script>
 
-<div class="text-center">
-	<h1 class="text-3xl font-bold underline">Welcome to LocalTust</h1>
+<div class="text-center mt-20">
+	<img src="/img/logo.svg" alt="Company Logo" class="m-auto"/>
+	<h1 class="text-3xl font-bold underline mt-8">Welcome to LocalTust</h1>
 	<p class="mt-4">
-		Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the
-		documentation
+		Your local <strong>ssl</strong> Certification Manager
 	</p>
 </div>
 {#if page.data.session}
@@ -22,7 +22,6 @@
 {:else}
 	<!-- else content here -->
 	<div>
-		<img src="/img/logo.svg" alt="Company Logo" />
 		<button
 			onclick={() => signIn("github")}
 			class="focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium outline-none transition-all focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0 bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 border h-9 px-4 py-2 has-[>svg]:px-3 w-fit"

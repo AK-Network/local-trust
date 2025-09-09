@@ -1,7 +1,9 @@
 <script lang="ts">
-	import type { Snippet } from 'svelte';
 	import '../app.css';
-    import NavBar from '$lib/components/NavBar.svelte';
+	import { ModeWatcher } from "mode-watcher";
+	import NavBar from '$lib/components/NavBar.svelte';
+	import type { Snippet } from 'svelte';
+    import Toast from '$lib/components/toast/Toast.svelte';
 	
 	type Props = {
 		children: Snippet
@@ -9,7 +11,9 @@
 	let { children }: Props = $props();
 </script>
 
-
+<ModeWatcher />
 <NavBar />
 
 {@render children()}
+
+<Toast />
