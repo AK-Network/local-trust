@@ -38,11 +38,11 @@ class CertManager {
 
 
 	get rootCA(): RootCert|null {
-		return this.certificates.filter((certificate) => certificate.type === 'root')[0] ?? null
+		return this.certificates?.filter((certificate) => certificate.type === 'root')[0] ?? null
 	}
 
 	get projects(): ProjectCert[]|null {
-		return this.certificates.filter((certificate) => certificate.type === 'child') ?? null
+		return this.certificates?.filter((certificate) => certificate.type === 'child') ?? null
 	}
 }
 
